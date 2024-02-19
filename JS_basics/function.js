@@ -47,3 +47,27 @@ function objfunc(myobj){
     return myobj.class
 
 }console.log(objfunc(funcobj))
+//hoisiting in js
+console.log(hoistfunc(6))
+function hoistfunc(num){
+    return(num+1)
+
+}
+//declaring function as a expression
+const addone=function(num){
+    return(num+1)
+}
+console.log(addone(7));
+
+//hositing
+// console.log(addtwo(7))
+const addtwo=function(num){
+    return(num+2)
+}
+//decalre a array and access it in function
+array1=[1,2,3,4]
+function arrafunc(variablename){
+    return variablename[2]
+
+}
+console.log(arrafunc(array1))
