@@ -71,3 +71,17 @@ function arrafunc(variablename){
 
 }
 console.log(arrafunc(array1))
+//
+// function foo(){
+//     var a=90
+// }foo()
+// console.log(a);
+foo()
+// console.log(foo);
+var foo=90
+function foo()
+{
+    console.log("calling");
+}
+
+foo()
