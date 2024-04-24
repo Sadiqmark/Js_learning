@@ -179,7 +179,7 @@ togglebutton.addEventListener('change', function (e) {
 ```
 
 # project- 3 [BMI calculator]
-# HTMl
+# HTML
 ``` HTML
 <!DOCTYPE html>
 <html lang="en">
