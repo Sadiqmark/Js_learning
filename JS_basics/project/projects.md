@@ -86,3 +86,93 @@ buttons.forEach(function (items) {
 
 
 ```
+
+# Project-2[dark mode]
+# html
+``` html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toggle Button</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class='body1'>
+    <label class="switch">
+      <input type="checkbox" class="checkbox" id="black" />
+      <span class="slider"></span>
+    </label>
+    <div class="para">
+      <div class="hi">
+        Hello all
+      </div>
+    </div>
+
+    <script src="toggle.js"></script>
+  </body>
+</html>
+```
+# css
+``` css
+/* Hide the default checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider styles */
+.slider {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+/* Slider handle */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/* Toggle effect when checked */
+.switch input:checked + .slider {
+  background-color: #2196F3;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.hi{
+  text-align: center;
+}
+
+```
+# js
+```javascript
+let togglebutton = document.querySelector('.checkbox');
+let body = document.querySelector('body');
+let font=document.querySelector('.hi')
+togglebutton.addEventListener('change', function (e) {
+  if (e.target.checked) {
+    body.style.backgroundColor = 'black';
+    font.style.color='white';
+
+  } else {
+    body.style.backgroundColor = 'white';
+    font.style.color='black';
+  }
+});
+
+```
