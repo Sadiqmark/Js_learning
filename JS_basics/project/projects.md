@@ -179,6 +179,7 @@ togglebutton.addEventListener('change', function (e) {
 ```
 
 # project- 3 [BMI calculator]
+# HTMl
 ``` HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -215,7 +216,7 @@ togglebutton.addEventListener('change', function (e) {
 </html>
 
 ```
-#css
+# css
 ```css
 .container {
   width: 575px;
@@ -266,8 +267,7 @@ h1 {
 
 ```
 # Javascript
-
-```
+``` javascript
 let form=document.querySelector(".myform")  
 
 form.addEventListener('submit', function(e){
@@ -302,8 +302,11 @@ form.addEventListener('submit', function(e){
       result.innerHTML=`your weight ${finalresult} is Over weight`
     }
   }
-```
+
   
 
 })
+
+
 ```
+
