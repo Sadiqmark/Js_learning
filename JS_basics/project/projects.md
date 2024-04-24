@@ -6,7 +6,7 @@
 
 # solution code
 
-# project-1
+# project-1 [color changer]
 
 ```javascript
 let buttons = document.querySelectorAll('.button');
@@ -176,4 +176,134 @@ togglebutton.addEventListener('change', function (e) {
   }
 });
 
+```
+
+# project- 3 [BMI calculator]
+``` HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form action="" class="myform"> 
+        <p>
+          <label for="weight">Weight in KG:</label>
+          <input type="text" id="weight" />
+        </p>
+        <p>
+          <label for="height">Height in CM:</label>
+          <input type="text" id="height" />
+        </p>
+        <button class="cal">Calculate</button>
+        <div id="results"></div>
+        <div id="weight-guide">
+          <h3>BMI Weight Guide</h3>
+          <p>Under Weight = Less than 18.6</p>
+          <p>Normal Range = 18.6 and 24.9</p>
+          <p>Overweight = Greater than 24.9</p>
+        </div>
+      </form>
+    </div>
+    <script src="bmi.js"></script>
+  </body>
+</html>
+
+```
+#css
+```css
+.container {
+  width: 575px;
+  height: 825px;
+
+  background-color: #797978;
+  padding-left: 30px;
+}
+#height,
+#weight {
+  width: 150px;
+  height: 25px;
+  margin-top: 30px;
+}
+
+#weight-guide {
+  margin-left: 75px;
+  margin-top: 25px;
+}
+
+#results {
+  font-size: 35px;
+  margin-left: 90px;
+  margin-top: 20px;
+  color: rgb(241, 241, 241);
+}
+
+button {
+  width: 150px;
+  height: 35px;
+  margin-left: 90px;
+  margin-top: 25px;
+  background-color: #fff;
+  padding: 1px 30px;
+  border-radius: 8px;
+  color: #212121;
+  text-decoration: none;
+  border: 2px solid #212121;
+
+  font-size: 25px;
+}
+
+h1 {
+  padding-left: 15px;
+  padding-top: 25px;
+  
+}
+
+```
+# Javascript
+
+```
+let form=document.querySelector(".myform")  
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  let height=parseInt(document.querySelector("#height").value);
+  let weight=parseInt(document.querySelector("#weight").value);
+  let result=document.querySelector("#results")
+
+  if(height===" " || height<0 || isNaN(height))
+  {
+    let finalval=document.createTextNode("Plz give a valid height")
+    result.appendChild(finalval)
+  }
+  else if(weight===" " || weight<0 || isNaN(weight)){
+    let finalval2=document.createTextNode("plz give valid weight")
+    result.appendChild(finalval2)
+  }
+  else{
+    let finalresult=(weight / ((height*height)/10000)).toFixed(2)
+    let finval3=document.createTextNode(finalresult)
+    // result.appendChild(finval3)
+    // result.innerHTML=`<span>${finalresult}</span>`
+    if(finalresult<18.6){
+      result.innerHTML=`your weight ${finalresult} is Under weight`
+    }
+    else if(finalresult>=18.6 && finval3 <24.9){
+      result.innerHTML=`your weight ${finalresult} is Normal weight`
+  
+    }
+    else{
+      result.innerHTML=`your weight ${finalresult} is Over weight`
+    }
+  }
+```
+  
+
+})
 ```
