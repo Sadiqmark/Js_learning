@@ -309,4 +309,150 @@ form.addEventListener('submit', function(e){
 
 
 ```
+# project - login form with error message
+# HTML 
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      padding:0%;
+      margin:0%;
+      box-sizing:border-box;
+    }
+    body{
+      background-color:skyblue;
+    }
+    .log{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      height: 100vh;
+      gap:2rem;
+    }
+    form {
+       /* Occupy full height of parent container */
+      width: 300px; /* Occupy full width of parent container */
+    }
+    .form{
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+      align-items:center;
+
+    }
+    .user{
+      display:flex;
+      /* flex-direction:column; */
+      gap:0.8rem;
+    }
+    .pass{
+      display:flex;
+      gap:0.8rem;
+    }
+    .submit{
+      width:70px;
+      height:30px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="log">
+    <form action="" class="form">
+      <div class="user">
+        <label for="username" id="myuser">Username</label>
+        <input type="text" class="username" id="username">
+        </br>
+        <!-- <p class="errormsg1"></p> -->
+      </div>
+      <div class="pass">
+        <label for="password" id="mypass">Password</label>
+        <input type="password" class="password" id="password">
+        <!-- <p class="errormsg2"></p> -->
+      </div>
+      <button type="submit" class="submit">Submit</button>
+      <div class="error"></div>
+      
+
+
+    
+    </form>
+   
+
+  </div>
+  <script src="login.js"></script>
+</body>
+</html>
+
+```
+# javascript
+``` javascript
+// login.js
+document.addEventListener('DOMContentLoaded', function () {
+  const usernameInput = document.querySelector('.username');
+  const passwordInput = document.querySelector('.password');
+  const form = document.querySelector('.form');
+  const submit=document.querySelector('.submit');
+  const errorMsg1 = document.querySelector('.error');
+  // const errorMsg2 = document.querySelector('.errormsg2');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Check if username is empty
+    if (usernameInput.value.trim() === '' && passwordInput.value.trim() === '') {
+      errorMsg1.textContent = 'Please enter username and password';
+      // return;
+      // usernameInput.style.border = '1px solid red'; // Optionally, change border color
+      usernameInput.style.border='1px solid red'
+      passwordInput.style.border='1px solid red'
+    }
+  
+    else if(usernameInput.value.trim() === '') {
+      errorMsg1.textContent = 'Please enter a username.';
+      usernameInput.style.border='1px solid red'
+       // Stop further processing
+    }
+
+    // Check if password is empty
+    else if(passwordInput.value.trim() === '') {
+      errorMsg1.textContent = 'Please enter a password.';
+      passwordInput.style.border='1px solid red'
+      // Stop further processing
+    }
+
+    // Clear error message if both fields are filled
+    else{
+      // Add your logic for form submission here
+      console.log('Form submitted successfully!');
+      function clearForm() {
+        form.reset();
+        // Clear any error messages
+        errorMsg1.textContent = '';
+        usernameInput.style.border = '';
+        passwordInput.style.border = '';
+      }
+    
+      // Example usage:
+      // Assuming you have a button or some other trigger to clear the form
+      // Here, I'll use a button with the class "clear-button"
+      submit.addEventListener('click', clearForm);
+
+    }
+
+
+  });
+  
+});
+
+```
+
 
