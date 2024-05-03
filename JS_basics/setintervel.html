@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="head">hello all</h1>
+    <button id="start">start</button>
+    <button id="end">end</button>
+    <script>
+        
+            const start1=document.querySelector("#start")
+            start1.addEventListener('click',function(){
+                const myfunc=function(){
+                    console.log("hello");
+
+                }
+                const inter=setInterval(myfunc,1000);
+                const end=document.querySelector('#end')
+        end.addEventListener('click',function(){
+            clearInterval(inter)
+
+        })
+                
+
+    })
+            
+         
+
+            
+
+        
+
+
+        
+
+    </script>
+</body>
+</html>
