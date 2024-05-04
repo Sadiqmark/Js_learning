@@ -454,5 +454,56 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 ```
+# project - background color change
+# html
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="conatiner">
+    <h1 class="head">Start should change the background color randomly</h1>
+    <button class="start">start</button>
+    <button class="end">End</button>
+  </div>
+  <script src="random.js"></script>
+
+  
+</body>
+</html>
+```
+```javascript
+//generating random color hex value
+const randomfunc=function(){
+  let hex='0123456ABCDEF';
+  let color='#'
+  for(let i=0;i<6;i++){
+    color=color+hex[Math.floor(Math.random()*16)]
+
+  }
+  return color;
+
+};
+let inter;
+const start=document.querySelector('.start')
+start.addEventListener('click',function(){
+  const myfunc=function(){
+    document.body.style.backgroundColor=randomfunc();
+
+  }
+
+  inter=setInterval(myfunc,1000);
+
+})
+const stop=document.querySelector('.end')
+stop.addEventListener('click',function(){
+  clearInterval(inter);
+})
+```
 
 
